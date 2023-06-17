@@ -69,7 +69,7 @@ namespace Britzza___v6.Repository.Tests
         public void GetUserByUsernameAndPassword_Found()
         {
             // Arrange
-            string username = "Joao";
+            string username = "Joaoo";
             string password = "5547";
             var filter = Builders<User>.Filter.Eq(u => u.Username, username) & Builders<User>.Filter.Eq(u => u.Password, password);
             var expectedResult = new User { Username = username, Password = password };

@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+<h2>Bem vindo à nossa Pizzaria Britzza!</h2>
+
+@if (!User.Identity.IsAuthenticated)
+{
+    <p>Por favor, faça o login para fazer um pedido.</p>
+    <p><a href="@Url.Action("Login", "Account")">Conecte-se</a></p>
+    <p>Se você não tem uma conta, <a href="@Url.Action("Register", "Account")">cadastre-se aqui</a>.</p>
+}
+else
+{
+    <p>Welcome, @User.Identity.Name!</p>
+    <p>Place your order now.</p>
+    <!-- Add the order form here -->
+}

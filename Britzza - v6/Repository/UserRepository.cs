@@ -20,5 +20,11 @@ namespace Britzza___v6.Repository
             user.UserId = ObjectId.GenerateNewId();
             _users.InsertOne(user);
         }
+
+        public User GetUserByUsernameAndPassword(string username, string password)
+        {
+            var filter = Builders<User>.Filter.Eq(u => u.Username, username) & Builders<User>.Filter.Eq(u => u.Password, password);
+            return _users.Find(filter).FirstOrDefault();
+        }
     }
 }

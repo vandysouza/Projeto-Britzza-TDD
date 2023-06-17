@@ -1,5 +1,5 @@
-﻿using Britzzav4.Models;
-using Britzzav4.Repositorys.Cliente;
+﻿using Britzzav4.Interfaces;
+using Britzzav4.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Britzzav4.Controllers

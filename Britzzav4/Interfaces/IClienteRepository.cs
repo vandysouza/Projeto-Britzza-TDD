@@ -1,6 +1,6 @@
 ﻿using Britzzav4.Models;
 
-namespace Britzzav4.Repositorys.Cliente
+namespace Britzzav4.Interfaces
 {
     public interface IClienteRepository
     {

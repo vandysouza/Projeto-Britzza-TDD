@@ -1,7 +1,14 @@
+using Britzza___v6.Interfaces;
+using Britzza___v6.Repository;
+
 var builder = WebApplication.CreateBuilder(args);
+var connectionString = "mongodb+srv://vandi123:vandiBritzza@cluster0.mjg9q9v.mongodb.net/";
+var databaseName = "britzza";
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IUserRepository, UserRepository>(x => new UserRepository(connectionString, databaseName));
+
 
 var app = builder.Build();
 

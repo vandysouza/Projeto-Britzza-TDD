@@ -1,0 +1,43 @@
+﻿using Britzza___v6.Interfaces;
+using Britzza___v6.Models;
+using Britzza___v6.Models.ViewModels;
+using Microsoft.AspNetCore.Mvc;
+
+namespace Britzza___v6.Controllers
+{
+    public class AccountController : Controller
+    {
+        private readonly IUserRepository _userRepository;
+
+        public AccountController(IUserRepository userRepository)
+        {
+            _userRepository = userRepository;
+        }
+
+        [HttpGet]
+        public ActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Register(RegisterViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = new User
+                {
+                    Username = model.Username,
+                    Email = model.Email,
+                    Password = model.Password,
+                    Function = model.Function
+                };
+
+                _userRepository.CreateUser(user);
+
+                return RedirectToAction("Login");
+            }
+            return View(model);
+        }
+    }
+}

@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Britzza - v6", "Britzza - v6\Britzza - v6.csproj", "{49D32E04-D5E9-4E33-A9BA-07C68D9EF2A0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrizzaTest", "BrizzaTest2\BrizzaTest.csproj", "{7A928252-B6CD-4836-99FE-834B991071FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{49D32E04-D5E9-4E33-A9BA-07C68D9EF2A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49D32E04-D5E9-4E33-A9BA-07C68D9EF2A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49D32E04-D5E9-4E33-A9BA-07C68D9EF2A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A928252-B6CD-4836-99FE-834B991071FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A928252-B6CD-4836-99FE-834B991071FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A928252-B6CD-4836-99FE-834B991071FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A928252-B6CD-4836-99FE-834B991071FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -89,5 +89,40 @@ namespace Britzza___v6.Controllers
             }
         }
 
+        /// <summary>
+        /// Desabilita Cliente
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public ActionResult DesabilitaCliente(ClienteModel model)
+        {
+            try
+            {
+                _clienteRepository.DesabilitaCliente(model);
+                return View();
+            }
+            catch (Exception)
+            {
+                return View("~/Views/Shared/Error.cshtml");
+            }
+        }
+
+        /// <summary>
+        /// Apaga Cliente
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public ActionResult DeletaCliente(string documento)
+        {
+            try
+            {
+                _clienteRepository.DeletaCliente(documento);
+                return View();
+            }
+            catch (Exception)
+            {
+                return View("~/Views/Shared/Error.cshtml");
+            }
+        }
     }
 }

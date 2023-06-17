@@ -76,5 +76,32 @@ namespace Britzza___v6.Repository
             }
         }
 
+        public void DesabilitaCliente(ClienteModel model)
+        {
+            try
+            {
+                var filter = Builders<ClienteModel>.Filter.Eq(c => c.NumeroDocumento, model.NumeroDocumento);
+                var update = Builders<ClienteModel>.Update.Set(c => c.Enabled, false);
+                _clientes.UpdateOne(filter, update);
+            }
+            catch (Exception ex)
+            {
+                var mensagem = ex.Message;
+                throw;
+            }
+        }
+        public void DeletaCliente(string documento)
+        {
+            try
+            {
+                var filter = Builders<ClienteModel>.Filter.Eq(c => c.NumeroDocumento, documento);
+                _clientes.DeleteOne(filter);
+            }
+            catch (Exception ex)
+            {
+                var mensagem = ex.Message;
+                throw;
+            }
+        }
     }
 }

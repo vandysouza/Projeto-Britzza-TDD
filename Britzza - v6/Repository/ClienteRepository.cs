@@ -47,6 +47,18 @@ namespace Britzza___v6.Repository
                 throw;
             }
         }
-     
+
+        public void CriaCliente(ClienteModel cliente)
+        {
+            try
+            {
+                _clientes.InsertOne(cliente);
+            }
+            catch (Exception ex)
+            {
+                var mensagem = ex.Message;
+                throw;
+            }
+        }
     }
 }

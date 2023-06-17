@@ -53,6 +53,22 @@ namespace Britzza___v6.Controllers
             }
         }
 
-       
+        /// <summary>
+        /// Cria Cliente
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public ActionResult CriaCliente(ClienteModel model)
+        {
+            try
+            {
+                _clienteRepository.CriaCliente(model);
+                return View();
+            }
+            catch (Exception)
+            {
+                return View("~/Views/Shared/Error.cshtml");
+            }
+        }
     }
 }

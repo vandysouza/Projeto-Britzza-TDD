@@ -7,6 +7,6 @@ namespace Britzza___v6.Interfaces
         List<ClienteModel> BuscaTodosClientes();
         ClienteModel BuscaClientePorDocumento(string documento);
         void CriaCliente(ClienteModel cliente);
-
+        void AlteraCliente(ClienteModel model);
     }
 }

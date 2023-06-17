@@ -70,5 +70,24 @@ namespace Britzza___v6.Controllers
                 return View("~/Views/Shared/Error.cshtml");
             }
         }
+
+        /// <summary>
+        /// Altera Cliente
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public ActionResult AlteraCliente(ClienteModel model)
+        {
+            try
+            {
+                _clienteRepository.AlteraCliente(model);
+                return View();
+            }
+            catch (Exception)
+            {
+                return View("~/Views/Shared/Error.cshtml");
+            }
+        }
+
     }
 }

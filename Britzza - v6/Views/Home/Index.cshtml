@@ -2,17 +2,30 @@
     ViewData["Title"] = "Home Page";
 }
 
-<h2>Bem vindo à nossa Pizzaria Britzza!</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/css/Index.css" />
+    <img src="~/images/pizzaIndex2.png" alt="Pizzaria" class="background-image" />
+</head>
+<body class="custom-body">
+    <div class="login-container">
 
-@if (!User.Identity.IsAuthenticated)
-{
-    <p>Por favor, faça o login para fazer um pedido.</p>
-    <p><a href="@Url.Action("Login", "Account")">Conecte-se</a></p>
-    <p>Se você não tem uma conta, <a href="@Url.Action("Register", "Account")">cadastre-se aqui</a>.</p>
-}
-else
-{
-    <p>Welcome, @User.Identity.Name!</p>
-    <p>Place your order now.</p>
-    <!-- Add the order form here -->
-}
+        <h2>Bem-vindo à nossa Pizzaria Britzza!</h2><br><br>
+        @if (!User.Identity.IsAuthenticated)
+        {
+            <p>Por favor, faça o login para fazer um pedido.</p>
+            <p><a href="@Url.Action("Login", "Account")">Conecte-se</a></p>
+            <p>Se você não tem uma conta, <a href="@Url.Action("Register", "Account")">cadastre-se aqui</a>.</p>
+        }
+        else
+        {
+            <p>Welcome, @User.Identity.Name!</p>
+            <p>Place your order now.</p>
+            <!-- Add the order form here -->
+        }
+    </div>
+</body>
+</html>
+

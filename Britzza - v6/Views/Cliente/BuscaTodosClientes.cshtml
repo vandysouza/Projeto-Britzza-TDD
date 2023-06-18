@@ -50,13 +50,25 @@
             text-align: center;
             color: indianred;
         }
+        .buttons{
+            display : flex;
+            flex-direction: row;
+            margin: 25px;
+        }
 </style>
 <div class="content">
     <h1>Lista de Clientes da Pizzaria</h1>
+    <div class="buttons">
+        <button style="width: 15%; height: 5%; color: lightgrey; font-size: 1.2rem; background-color: indianred;" onclick="documento()">Buscar por Documento</button>
+        <button style="width: 15%; height: 5%; color: lightgrey; font-size: 1.2rem; background-color: indianred;" onClick="criar()">Criar Cliente</button>
+        <button style="width: 15%; height: 5%; color: lightgrey; font-size: 1.2rem; background-color: indianred;" onClick="alterar()">Alterar Cliente</button>
+        <button style="width: 15%; height: 5%; color: lightgrey; font-size: 1.2rem; background-color: indianred;" onClick="desabilitar()">Desabilitar Cliente</button>
+        <button style="width: 15%; height: 5%; color: lightgrey; font-size: 1.2rem; background-color: indianred;" onClick="Deletar()">Deletar Cliente</button>
+    </div>
     <table id="customers">
         <tr id="first" style="background: coral;">
             <th style="color: white;">NOME</th>
-            <th style ="color: white">DOCUMENTO</thstyle>
+            <th style="color: white">DOCUMENTO</thstyle>
             <th style="color: white">ENDERECO</th>
             <th style="color: white">TELEFONE</th>
         </tr>
@@ -71,4 +83,22 @@
             </tr>
             }
     </table>
+   
 </div>
+<script>
+    function documento(){
+        window.location = '/Cliente/BuscaClientePorDocumento'
+    } 
+    function criar() {
+        window.location = '/Cliente/CriaCliente'
+    }  
+    function alterar() {
+        window.location = '/Cliente/AlteraCliente'
+    }  
+    function desabilitar() {
+        window.location = '/Cliente/DesabilitaCliente'
+    } 
+    function Deletar() {
+        window.location = '/Cliente/DeletaCliente'
+    }
+</script>

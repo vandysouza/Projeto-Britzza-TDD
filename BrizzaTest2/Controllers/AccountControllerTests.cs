@@ -41,7 +41,7 @@ namespace Britzza___v6.Controllers.Tests
             var controller = new AccountController(userRepositoryMock.Object);
             var model = new RegisterViewModel
             {
-                Username = "validuser",
+                Username = "validuseer",
                 Email = "validemail@example.com",
                 Password = "validpassword"
             };

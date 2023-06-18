@@ -32,7 +32,6 @@ namespace Britzza___v6.Controllers.Tests
             Assert.IsInstanceOfType(result, typeof(ViewResult));
         }
 
-
         [TestMethod()]
         public void Register_Success()
         {
@@ -85,7 +84,7 @@ namespace Britzza___v6.Controllers.Tests
 
             // Assert
             Assert.IsNotNull(result);
-            Assert.AreEqual("Index", result.ActionName);
+            Assert.AreEqual("Dashboard", result.ActionName);
             Assert.AreEqual("Home", result.ControllerName);
         }
 

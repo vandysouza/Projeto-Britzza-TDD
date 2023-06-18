@@ -21,8 +21,9 @@ namespace Britzza___v6.Controllers
         /// <returns></returns>
         public ActionResult BuscaTodosClientes()
         {
-            List<ClienteModel> result = new List<ClienteModel>();
-            result = _clienteRepository.BuscaTodosClientes();
+            ResultClienteModel result = new ResultClienteModel();
+            result.ListaClientes = new List<ClienteModel>();
+            result.ListaClientes = _clienteRepository.BuscaTodosClientes();
             if (result != null)
             {
                 return View(result);
@@ -33,23 +34,43 @@ namespace Britzza___v6.Controllers
             }
         }
 
+        [HttpGet]
+        public ActionResult BuscaClientePorDocumento()
+        {
+            ResultClienteModel result = new ResultClienteModel();
+            result.ListaClientes = new List<ClienteModel>();
+            return View(result);
+        }
+
         /// <summary>
         /// Busca Cliente pelo numero do Documento
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public ActionResult BuscaClientePorDocumento(string documento)
+        public ActionResult BuscaClientePorDocumento(ResultClienteModel model)
         {
-            ClienteModel result = new ClienteModel();
-            result = _clienteRepository.BuscaClientePorDocumento(documento);
-            if (result != null)
+            ResultClienteModel result = new ResultClienteModel();
+            result.ListaClientes = new List<ClienteModel>();
+            ClienteModel cl = _clienteRepository.BuscaClientePorDocumento(model.BuscaDocumento);
+            if (cl.NumeroDocumento.Equals(null))
             {
-                return View(result);
+                return View("~/Views/Shared/Error.cshtml");
+
             }
             else
             {
-                return View("~/Views/Shared/Error.cshtml");
+                result.ListaClientes.Add(cl);
+                return View(result);
+
             }
+        }
+
+        [HttpGet]
+        public ActionResult CriaCliente()
+        {
+            ClienteModel result = new ClienteModel();
+            result.NumeroDocumento = null;
+            return View(result);
         }
 
         /// <summary>
@@ -60,9 +81,10 @@ namespace Britzza___v6.Controllers
         public ActionResult CriaCliente(ClienteModel model)
         {
             try
-            {   
+            {
                 _clienteRepository.CriaCliente(model);
-                return View();
+                ClienteModel cl = _clienteRepository.BuscaClientePorDocumento(model.NumeroDocumento);
+                return View(cl);
             }
             catch (Exception)
             {
@@ -70,6 +92,12 @@ namespace Britzza___v6.Controllers
             }
         }
 
+        [HttpGet]
+        public ActionResult AlteraCliente()
+        {
+            ClienteModel result = new ClienteModel();
+            return View(result);
+        }
         /// <summary>
         /// Altera Cliente
         /// </summary>
@@ -79,13 +107,29 @@ namespace Britzza___v6.Controllers
         {
             try
             {
-                _clienteRepository.AlteraCliente(model);
-                return View();
+                if (model.NumeroDocumento != null && model.Nome == null)
+                {
+                    ClienteModel cl = _clienteRepository.BuscaClientePorDocumento(model.NumeroDocumento);
+                    cl.Telefone = null;
+                    return View(cl);
+
+                }                
+                    _clienteRepository.AlteraCliente(model);
+                ClienteModel cld = _clienteRepository.BuscaClientePorDocumento(model.NumeroDocumento);
+                return View(cld);
+                
             }
             catch (Exception)
             {
                 return View("~/Views/Shared/Error.cshtml");
             }
+        }
+
+        [HttpGet]
+        public ActionResult DesabilitaCliente()
+        {
+            ClienteModel result = new ClienteModel();
+            return View(result);
         }
 
         /// <summary>
@@ -93,12 +137,13 @@ namespace Britzza___v6.Controllers
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public ActionResult DesabilitaCliente(string documento)
+        public ActionResult DesabilitaCliente(ClienteModel model)
         {
             try
             {
-                _clienteRepository.DesabilitaCliente(documento);
-                return View();
+                ClienteModel cld = _clienteRepository.BuscaClientePorDocumento(model.NumeroDocumento);
+                _clienteRepository.DesabilitaCliente(model.NumeroDocumento);
+                return View(cld);
             }
             catch (Exception)
             {
@@ -106,17 +151,25 @@ namespace Britzza___v6.Controllers
             }
         }
 
+        [HttpGet]
+        public ActionResult DeletaCliente()
+        {
+            ClienteModel result = new ClienteModel();
+            return View(result);
+        }
+
         /// <summary>
         /// Apaga Cliente
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public ActionResult DeletaCliente(string documento)
+        public ActionResult DeletaCliente(ClienteModel model)
         {
             try
             {
-                _clienteRepository.DeletaCliente(documento);
-                return View();
+                ClienteModel cld = _clienteRepository.BuscaClientePorDocumento(model.NumeroDocumento);
+                _clienteRepository.DeletaCliente(model.NumeroDocumento);
+                return View(cld);
             }
             catch (Exception)
             {

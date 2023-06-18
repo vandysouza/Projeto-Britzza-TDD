@@ -52,7 +52,8 @@ namespace Britzza___v6.Repository
         {
             try
             {
-                //cliente.ClienteId = ObjectId.GenerateNewId();
+                cliente.ClienteId = ObjectId.GenerateNewId();
+                cliente.Enabled = true;
                 _clientes.InsertOne(cliente);
             }
             catch (Exception ex)
@@ -67,7 +68,7 @@ namespace Britzza___v6.Repository
             try
             {
                 var filter = Builders<ClienteModel>.Filter.Eq(c => c.NumeroDocumento, model.NumeroDocumento);
-                var update = Builders<ClienteModel>.Update.Set(c => c.Endereco, model.Endereco).Set(c => c.Telefone, model.Telefone);
+                var update = Builders<ClienteModel>.Update.Set(c => c.Endereco, model.Endereco).Set(c => c.Telefone, model.Telefone).Set( c => c.Nome, model.Nome);
                 _clientes.UpdateOne(filter, update);
             }
             catch (Exception ex)
@@ -83,7 +84,7 @@ namespace Britzza___v6.Repository
             {
                 var filter = Builders<ClienteModel>.Filter.Eq(c => c.NumeroDocumento, documento);
                 var update = Builders<ClienteModel>.Update.Set(c => c.Enabled, false);
-                _clientes.UpdateOne(filter, update);
+              var res =  _clientes.UpdateOne(filter, update);
             }
             catch (Exception ex)
             {
@@ -96,7 +97,7 @@ namespace Britzza___v6.Repository
             try
             {
                 var filter = Builders<ClienteModel>.Filter.Eq(c => c.NumeroDocumento, documento);
-                _clientes.DeleteOne(filter);
+               var res =  _clientes.DeleteOne(filter);
             }
             catch (Exception ex)
             {

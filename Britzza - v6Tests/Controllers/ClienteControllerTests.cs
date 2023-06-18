@@ -45,9 +45,9 @@ namespace Britzza___v6.Controllers.Tests
             var clienteRepositoryMock = new Mock<IClienteRepository>();
             var controller = new ClienteController(_clienteRepository);
             string doc = "12345678910";
-
+            ResultClienteModel cl = new ResultClienteModel() { BuscaDocumento = doc };
             //Act
-            var result = controller.BuscaClientePorDocumento(doc);
+            var result = controller.BuscaClientePorDocumento(cl);
             
             //Assert 
             Assert.IsNotNull(result);
@@ -106,8 +106,9 @@ namespace Britzza___v6.Controllers.Tests
             var controller = new ClienteController(_clienteRepository);
             string doc = "12345678910";
 
+            ClienteModel cl = new ClienteModel() { NumeroDocumento = doc };
             //Act
-            var result = controller.DesabilitaCliente(doc);
+            var result = controller.DesabilitaCliente(cl);
 
             //Assert 
             Assert.IsNotNull(result);
@@ -120,8 +121,9 @@ namespace Britzza___v6.Controllers.Tests
             var controller = new ClienteController(_clienteRepository);
             string doc = "12345678910";
 
+            ClienteModel cl = new ClienteModel() { NumeroDocumento = doc };
             //Act
-            var result = controller.DeletaCliente(doc);
+            var result = controller.DeletaCliente(cl);
 
             //Assert 
             Assert.IsNotNull(result);

@@ -1,0 +1,143 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model Britzza___v6.Models.ClienteModel
+<style>
+
+    body {
+        background-color: #ffa128;
+        opacity: 0.9;
+    }
+
+    .content {
+        background-color: white;
+    }
+
+        .content h1 {
+            font-size: 2.2rem;
+            margin-left: 33%;
+            color: indianred;
+            font-family: sans-serif;
+            padding: 60px 0 0 0;
+        }
+
+    #customers {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 4%;
+    }
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customers tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #customers tr:hover {
+            background-color: #ddd;
+        }
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: center;
+            color: indianred;
+        }
+
+    .identi {
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+        margin-left: 36%;
+    }
+</style>
+<div class="content">
+@if (Model.NumeroDocumento == null)
+{
+    <h1>Informe o Documento do Cliente:</h1>
+    @using (Html.BeginForm("AlteraCliente", "Cliente", FormMethod.Post))
+    {
+        @Html.ValidationSummary()
+
+        <div class="identi">
+            @Html.TextBoxFor(m => m.NumeroDocumento)
+            @Html.ValidationMessageFor(m => m.NumeroDocumento)
+        </div>
+
+        <button style="width: 15%; height: 5%; margin: 3% 0 9% 43%; color: lightgrey; font-size: 1.2rem; background-color: indianred;" type="submit">
+            Busca Cliente
+        </button>
+    }
+}
+else if (Model.NumeroDocumento != null && Model.Telefone == null)
+{
+    <table id="customers">
+        <tr id="first" style="background: coral;">
+            <th style="color: white;">NOME</th>
+            <th style="color: white">DOCUMENTO</th>
+            <th style="color: white">ENDERECO</th>
+            <th style="color: white">TELEFONE</th>
+        </tr>
+        <tr>
+            <th>@Model.Nome</th>
+            <th>@Model.NumeroDocumento</th>
+            <th>@Model.Endereco</th>
+            <th>@Model.Telefone</th>
+        </tr>
+
+    </table>
+    <h1>Informe os Dados para Alteração:</h1>
+    @using (Html.BeginForm("AlteraCliente", "Cliente", FormMethod.Post))
+    {
+        @Html.ValidationSummary()
+
+        <div class="identi">
+            @Html.LabelFor(m => m.Nome)
+            @Html.TextBoxFor(m => m.Nome)
+            @Html.ValidationMessageFor(m => m.Nome)
+
+            @Html.LabelFor(m => m.Endereco)
+            @Html.TextBoxFor(m => m.Endereco)
+            @Html.ValidationMessageFor(m => m.Endereco)
+
+            @Html.LabelFor(m => m.Telefone)
+            @Html.TextBoxFor(m => m.Telefone)
+            @Html.ValidationMessageFor(m => m.Telefone)
+
+            @Html.HiddenFor(m => m.NumeroDocumento)
+
+
+        </div>
+
+        <button style="width: 15%; height: 5%; margin: 3% 0 9% 43%; color: lightgrey; font-size: 1.2rem; background-color: indianred;" type="submit">
+            Alterar Cliente
+        </button>
+    }
+}
+else
+{
+    <h1>Cliente Alterado com Sucesso!</h1>
+    <table id="customers">
+        <tr id="first" style="background: coral;">
+            <th style="color: white;">NOME</th>
+            <th style="color: white">DOCUMENTO</th>
+            <th style="color: white">ENDERECO</th>
+            <th style="color: white">TELEFONE</th>
+        </tr>
+        <tr>
+            <th>@Model.Nome</th>
+            <th>@Model.NumeroDocumento</th>
+            <th>@Model.Endereco</th>
+            <th>@Model.Telefone</th>
+        </tr>
+    </table>
+}
+
+</div>

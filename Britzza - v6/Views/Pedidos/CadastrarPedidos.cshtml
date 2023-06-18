@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>Tela de Pedidos</title>
+  <style>
+    /* Estilos CSS */
+  </style>
+</head>
+<body>
+  <h1>Tela de Pedidos</h1>
+
+  <form>
+    <h2>Informações do Cliente</h2>
+    <label for="cliente">Número do Documento:</label>
+    <input type="text" id="cliente" name="cliente" placeholder="Digite o número do documento do cliente" />
+
+    <!-- Aqui você pode adicionar campos adicionais para exibir os dados do cliente retornado pela rota GET -->
+
+    <h2>Seleção de Pizza</h2>
+    <label for="sabor">Sabor:</label>
+    <select id="sabor" name="sabor">
+      <option value="margherita">Margherita</option>
+      <option value="calabresa">Calabresa</option>
+      <option value="portuguesa">Portuguesa</option>
+      <!-- Adicione outros sabores de pizza aqui -->
+    </select>
+
+    <label for="quantidade">Quantidade:</label>
+    <input type="number" id="quantidade" name="quantidade" />
+
+    <label for="tamanho">Tamanho:</label>
+    <select id="tamanho" name="tamanho">
+      <option value="pequena">Pequena</option>
+      <option value="media">Média</option>
+      <option value="grande">Grande</option>
+      <!-- Adicione outros tamanhos de pizza aqui -->
+    </select>
+
+    <h2>Forma de Pagamento</h2>
+    <select id="pagamento" name="pagamento">
+      <option value="dinheiro">Dinheiro</option>
+      <option value="cartao">Cartão de Crédito</option>
+      <!-- Adicione outras opções de pagamento aqui -->
+    </select>
+
+    <h2>Bebidas</h2>
+    <label for="bebida">Bebida:</label>
+    <select id="bebida" name="bebida">
+      <option value="refrigerante">Refrigerante</option>
+      <option value="suco">Suco</option>
+      <option value="agua">Água</option>
+      <!-- Adicione outras opções de bebidas aqui -->
+    </select>
+
+    <input type="submit" value="Enviar Pedido" />
+  </form>
+</body>
+</html>

@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Tela de Pedidos</title>
+    <link rel="stylesheet" href="~/css/CadastrarPedidos.css" />
+    <script>
+        function buscarCliente() {
+            var clienteInput = document.getElementById("cliente");
+            var nomeCliente = document.getElementById("nome-cliente");
+
+            var url = "/cliente/BuscaClientePorDocumento?documento=" + clienteInput.value;
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", url, true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var resposta = xhr.responseText;
+                    if (resposta !== "") {
+                        var cliente = JSON.parse(resposta);
+                        console.log("ta aqui" + cliente.nome);
+                        nomeCliente.textContent = cliente.nome;
+                        exibirCamposSelecao(true);
+                    } else {
+                        nomeCliente.textContent = "";
+                        exibirCamposSelecao(false);
+                    }
+                }
+            };
+            xhr.send();
+        }
+
+        function exibirCamposSelecao(exibir) {
+            var camposSelecao = document.getElementById("campos-selecao");
+            camposSelecao.style.display = exibir ? "block" : "none";
+        }
+    </script>
+</head>
+<body class="custom-body">
+    <div class="cadastrar-box">
+        <h2 class="welcome-title">Tela de Pedidos</h2>
+
+        <form>
+            <h3>Informações do Cliente</h3>
+            <label for="cliente">Número do Documento do cliente:</label>
+            <input type="text" id="cliente" name="cliente" placeholder="Digite o número do documento do cliente" onkeyup="buscarCliente()" />
+
+            <!-- Aqui você pode adicionar campos adicionais para exibir os dados do cliente retornado pela rota GET -->
+
+           
+            <h4>Nome do Cliente:</h4>
+            <span id="nome-cliente"></span>
+
+            <div id="campos-selecao" style="display: none;">
+
+                <h3>Seleção de Pizzas</h3>
+                <label for="sabor">Sabor:</label>
+                <select id="sabor" name="sabor">
+                    <option value="margherita">Margherita</option>
+                    <option value="calabresa">Calabresa</option>
+                    <option value="portuguesa">Portuguesa</option>
+                    <option value="portuguesa">Frango</option>
+                    <option value="portuguesa">Frango com catupiry</option>
+                    <option value="portuguesa">Brócolis</option>
+                </select>
+
+                <label for="quantidade">Quantidade:</label>
+                <input type="number" id="quantidade" name="quantidade" />
+
+                <label for="tamanho">Tamanho:</label>
+                <select id="tamanho" name="tamanho">
+                    <option value="pequena">Pequena</option>
+                    <option value="media">Média</option>
+                    <option value="grande">Grande</option>
+                </select>
+
+                <h3>Seleção de Bebidas</h3>
+                <label for="bebida">Bebida:</label>
+                <select id="bebida" name="bebida">
+                    <option value="refrigerante">Refrigerante</option>
+                    <option value="suco">Suco</option>
+                    <option value="agua">Água</option>
+                </select>
+
+                <label for="quantidade">Quantidade:</label>
+                <input type="number" id="quantidade" name="quantidade" />
+
+                <h3>Forma de Pagamento</h3>
+                <select id="pagamento" name="pagamento">
+                    <option value="dinheiro">Dinheiro</option>
+                    <option value="cartao">Cartão de Crédito</option>
+                    <option value="cartao">Cartão de Débito</option>
+                    <option value="pix">Pix</option>
+                </select>
+            </div>
+            <br /><br /><br />
+
+            <input type="submit" value="Enviar Pedido" class="submit-button" />
+        </form>
+    </div>
+</body>
+</html>

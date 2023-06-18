@@ -61,11 +61,8 @@ namespace Britzza___v6.Controllers
 
                 if (user != null)
                 {
-                    // Autenticar usuário
-                    // ...
-                    // Redirecionar para a página inicial ou para onde desejar
-
-                    return RedirectToAction("Index", "Home");
+                    var nomeUsuario = user.Username;
+                    return RedirectToAction("Dashboard", "Home", new { username = nomeUsuario });
                 }
                 else
                 {

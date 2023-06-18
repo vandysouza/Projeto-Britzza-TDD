@@ -50,11 +50,12 @@
             text-align: center;
             color: indianred;
         }
-        .buttons{
-            display : flex;
-            flex-direction: row;
-            margin: 25px;
-        }
+
+    .buttons {
+        display: flex;
+        flex-direction: row;
+        margin: 2% 0 2% 7%;
+    }
 </style>
 <div class="content">
     <h1>Lista de Clientes da Pizzaria</h1>
@@ -83,21 +84,21 @@
             </tr>
             }
     </table>
-   
+
 </div>
 <script>
-    function documento(){
+    function documento() {
         window.location = '/Cliente/BuscaClientePorDocumento'
-    } 
+    }
     function criar() {
         window.location = '/Cliente/CriaCliente'
-    }  
+    }
     function alterar() {
         window.location = '/Cliente/AlteraCliente'
-    }  
+    }
     function desabilitar() {
         window.location = '/Cliente/DesabilitaCliente'
-    } 
+    }
     function Deletar() {
         window.location = '/Cliente/DeletaCliente'
     }

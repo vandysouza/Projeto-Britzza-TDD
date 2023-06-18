@@ -8,6 +8,7 @@ var databaseName = "britzza";
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IUserRepository, UserRepository>(x => new UserRepository(connectionString, databaseName));
+builder.Services.AddScoped<IClienteRepository, ClienteRepository>(x => new ClienteRepository(connectionString, databaseName));
 
 
 var app = builder.Build();

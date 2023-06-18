@@ -13,7 +13,6 @@ namespace Britzza___v6.Controllers
             )
         {
             _clienteRepository = clienteRepository;
-
         }
         /// <summary>
         /// Busca Lista de Clientes 
@@ -61,7 +60,7 @@ namespace Britzza___v6.Controllers
         public ActionResult CriaCliente(ClienteModel model)
         {
             try
-            {
+            {   
                 _clienteRepository.CriaCliente(model);
                 return View();
             }
@@ -94,11 +93,11 @@ namespace Britzza___v6.Controllers
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public ActionResult DesabilitaCliente(ClienteModel model)
+        public ActionResult DesabilitaCliente(string documento)
         {
             try
             {
-                _clienteRepository.DesabilitaCliente(model);
+                _clienteRepository.DesabilitaCliente(documento);
                 return View();
             }
             catch (Exception)

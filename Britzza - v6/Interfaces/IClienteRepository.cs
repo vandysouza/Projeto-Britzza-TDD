@@ -8,7 +8,7 @@ namespace Britzza___v6.Interfaces
         ClienteModel BuscaClientePorDocumento(string documento);
         void CriaCliente(ClienteModel cliente);
         void AlteraCliente(ClienteModel model);
-        void DesabilitaCliente(ClienteModel model);
+        void DesabilitaCliente(string documento);
         void DeletaCliente(string documento);
     }
 }

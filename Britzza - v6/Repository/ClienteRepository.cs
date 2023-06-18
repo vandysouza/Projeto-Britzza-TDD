@@ -52,6 +52,7 @@ namespace Britzza___v6.Repository
         {
             try
             {
+                //cliente.ClienteId = ObjectId.GenerateNewId();
                 _clientes.InsertOne(cliente);
             }
             catch (Exception ex)
@@ -76,11 +77,11 @@ namespace Britzza___v6.Repository
             }
         }
 
-        public void DesabilitaCliente(ClienteModel model)
+        public void DesabilitaCliente(string documento)
         {
             try
             {
-                var filter = Builders<ClienteModel>.Filter.Eq(c => c.NumeroDocumento, model.NumeroDocumento);
+                var filter = Builders<ClienteModel>.Filter.Eq(c => c.NumeroDocumento, documento);
                 var update = Builders<ClienteModel>.Update.Set(c => c.Enabled, false);
                 _clientes.UpdateOne(filter, update);
             }

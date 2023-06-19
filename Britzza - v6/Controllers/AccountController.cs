@@ -47,6 +47,34 @@ namespace Britzza___v6.Controllers
         }
 
         [HttpGet]
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(LoginViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = _userRepository.GetUserByUsernameAndPassword(model.Username, model.Password);
+
+                if (user != null)
+                {
+                    var nomeUsuario = user.Username;
+                    return RedirectToAction("Dashboard", "Home", new { username = nomeUsuario });
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Invalid username or password");
+                }
+            }
+
+            // Se houver erros de validação ou autenticação falhar, retornar a view de login com os erros exibidos.
+            return View(model);
+        }
+
+        [HttpGet]
         public ActionResult Register()
         {
             return View();

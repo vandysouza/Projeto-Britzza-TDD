@@ -1,0 +1,57 @@
+.custom-body {
+    background-color: #fbd28f;
+}
+
+.login-container {
+    width: 350px;
+    margin: 300px auto;
+    background-color: hsl(37, 93%, 70%);
+    padding: 20px;
+    padding-right: 40px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px #ccc;
+}
+
+
+
+
+
+.welcome-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-links {
+    margin-top: 20px;
+}
+
+    .login-links p {
+        margin-bottom: 10px;
+    }
+
+    .login-links a {
+        color: #4CAF50;
+        text-decoration: none;
+    }
+
+        .login-links a:hover {
+            text-decoration: underline;
+        }
+
+.background-image {
+    width: 40%;
+    height: 40%;
+    position: absolute;
+    top: 20%;
+    right: 50%;
+    transform: translateY(-50%);
+    z-index: -1;
+    background-size: cover;
+}
+
+
+
+h2 {
+    text-align: center;
+    color: #ff8c00;
+}

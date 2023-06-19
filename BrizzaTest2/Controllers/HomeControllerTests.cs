@@ -21,5 +21,44 @@ namespace Britzza___v6.Controllers.Tests
             // Assert
             Assert.IsInstanceOfType(result, typeof(ViewResult));
         }
+
+        public void Dashboard_ReturnsViewResult()
+        {
+            // Arrange
+            var loggerMock = new Mock<ILogger<HomeController>>();
+            var controller = new HomeController(loggerMock.Object);
+
+            // Act
+            var result = controller.Index();
+
+            // Assert
+            Assert.IsInstanceOfType(result, typeof(ViewResult));
+        }
+
+        public void Cliente_ReturnsViewResult()
+        {
+            // Arrange
+            var loggerMock = new Mock<ILogger<HomeController>>();
+            var controller = new HomeController(loggerMock.Object);
+
+            // Act
+            var result = controller.Index();
+
+            // Assert
+            Assert.IsInstanceOfType(result, typeof(ViewResult));
+        }
+
+        public void Pedidos_ReturnsViewResult()
+        {
+            // Arrange
+            var loggerMock = new Mock<ILogger<HomeController>>();
+            var controller = new HomeController(loggerMock.Object);
+
+            // Act
+            var result = controller.Index();
+
+            // Assert
+            Assert.IsInstanceOfType(result, typeof(ViewResult));
+        }
     }
 }

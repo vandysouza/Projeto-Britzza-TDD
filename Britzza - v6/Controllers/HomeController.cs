@@ -15,5 +15,20 @@ namespace Britzza___v6.Controllers
         {
             return View();
         }
+        public ActionResult Dashboard(string username)
+        {
+            ViewBag.Username = username;
+            return View();
+        }
+
+        public ActionResult Cliente()
+        {
+            return View();
+        }
+
+        public ActionResult Pedidos()
+        {
+            return View();
+        }
     }
 }

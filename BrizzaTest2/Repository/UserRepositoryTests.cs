@@ -43,7 +43,7 @@ namespace Britzza___v6.Repository.Tests
             var controller = new AccountController(userRepositoryMock.Object);
             var user = new User
             {
-                Username = "testando",
+                Username = "testandoo",
                 Email = "testando@example.com",
                 Password = "testandopassword",
                 Function = "Operador"

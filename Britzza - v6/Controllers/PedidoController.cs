@@ -57,7 +57,7 @@ namespace Britzza___v6.Controllers
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public ActionResult BuscaPedidoPorDocumento(ResultClienteModel model)
+        public ActionResult BuscaPedidoPorDocumento(ResultPedidoModel model)
         {
             try
             {

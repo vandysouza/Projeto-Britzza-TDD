@@ -9,6 +9,7 @@ var databaseName = "britzza";
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IUserRepository, UserRepository>(x => new UserRepository(connectionString, databaseName));
 builder.Services.AddScoped<IClienteRepository, ClienteRepository>(x => new ClienteRepository(connectionString, databaseName));
+builder.Services.AddScoped<IPedidoRepository, PedidoRepository>(x => new PedidoRepository(connectionString, databaseName));
 
 
 var app = builder.Build();

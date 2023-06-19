@@ -1,0 +1,105 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Britzza___v6.Models.PedidoModel
+<style>
+
+    body {
+        background-color: #ffa128;
+        opacity: 0.9;
+    }
+
+    .content {
+        background-color: white;
+    }
+
+        .content h1 {
+            font-size: 2.2rem;
+            margin-left: 33%;
+            color: indianred;
+            font-family: sans-serif;
+            padding: 60px 0 0 0;
+        }
+
+    #customers {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 4%;
+    }
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customers tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #customers tr:hover {
+            background-color: #ddd;
+        }
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: center;
+            color: indianred;
+        }
+
+    .identi {
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+        margin-left: 36%;
+    }
+</style>
+<div class="content">
+    @if (Model.Numero_Cliente == null)
+    {
+        <h1>Informe o Documento do Cliente:</h1>
+        @using (Html.BeginForm("DeletaPedido", "Pedido", FormMethod.Post))
+        {
+            @Html.ValidationSummary()
+
+            <div class="identi">
+                @Html.TextBoxFor(m => m.Numero_Cliente)
+                @Html.ValidationMessageFor(m => m.Numero_Cliente)
+            </div>
+
+            <button style="width: 15%; height: 5%; margin: 3% 0 9% 43%; color: lightgrey; font-size: 1.2rem; background-color: indianred;" type="submit">
+                Busca Cliente
+            </button>
+        }
+    }
+    else
+    {
+        <h1>Cliente Apagado com Sucesso!</h1>
+        <table id="customers">
+            <tr id="first" style="background: coral;">
+                <th style="color: white;">CLIENTE</th>
+                <th style="color: white">SABOR PIZZA</th>
+                <th style="color: white">TAMANHO PIZZA</th>
+                <th style="color: white">QTD PIZZA</th>
+                <th style="color: white;">BEBIDA</th>
+                <th style="color: white">QTD BEBIDA</th>
+                <th style="color: white">FORMA DE PAGAMENTO</th>
+                <th style="color: white">STATUS</th>
+            </tr>
+            <tr>
+                <th>@Model.Numero_Cliente</th>
+                <th>@Model.Sabor_Pizza</th>
+                <th>@Model.Tamanho_Pizza</th>
+                <th>@Model.Quantidade_Pizza</th>
+                <th>@Model.Bebida</th>
+                <th>@Model.Quantidade_Pizza</th>
+                <th>@Model.Forma_Pagamento</th>
+                <th>@Model.Status</th>
+            </tr>
+        </table>
+    }
+
+</div>

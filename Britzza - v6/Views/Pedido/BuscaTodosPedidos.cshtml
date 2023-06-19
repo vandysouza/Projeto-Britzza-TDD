@@ -1,0 +1,115 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Britzza___v6.Models.ResultPedidoModel
+<style>
+
+    body {
+        background-color: #ffa128;
+        opacity: 0.9;
+    }
+
+    .content {
+        background-color: white;
+        overflow-x: auto;
+    }
+
+        .content h1 {
+            font-size: 2.2rem;
+            margin-left: 33%;
+            color: indianred;
+            font-family: sans-serif;
+            padding: 60px 0 0 0;
+        }
+
+    #customers {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 4%;
+    }
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customers tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #customers tr:hover {
+            background-color: #ddd;
+        }
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: center;
+            color: indianred;
+        }
+
+    .buttons {
+        display: flex;
+        flex-direction: row;
+        margin: 2% 0 2% 7%;
+    }
+</style>
+<div class="content">
+    <h1>Lista de Pedidos</h1>
+    <div class="buttons">
+        <button style="width: 15%; height: 5%; color: lightgrey; font-size: 1.2rem; background-color: indianred;" onclick="documento()">Buscar por Documento</button>
+        <button style="width: 15%; height: 5%; color: lightgrey; font-size: 1.2rem; background-color: indianred;" onClick="criar()">Criar Pedido</button>
+        <button style="width: 15%; height: 5%; color: lightgrey; font-size: 1.2rem; background-color: indianred;" onClick="alterar()">Alterar Pedido</button>
+        <button style="width: 15%; height: 5%; color: lightgrey; font-size: 1.2rem; background-color: indianred;" onClick="Deletar()">Deletar Pedido</button>
+    </div>
+    <table id="customers">
+        <tr id="first" style="background: coral;">
+            <th style="color: white;">CLIENTE</th>
+            <th style="color: white">SABOR PIZZA</th>
+            <th style="color: white">TAMANHO PIZZA</th>
+            <th style="color: white">QTD PIZZA</th>
+            <th style="color: white;">BEBIDA</th>
+            <th style="color: white">QTD BEBIDA</th>
+            <th style="color: white">FORMA DE PAGAMENTO</th>
+            <th style="color: white">STATUS</th>
+
+        </tr>
+        <tr>
+            @for (int i = 0; i < Model.ListaPedidos.Count(); i++)
+            {
+            <tr>
+                <th>@Model.ListaPedidos[i].Numero_Cliente</th>
+                <th>@Model.ListaPedidos[i].Sabor_Pizza</th>
+                <th>@Model.ListaPedidos[i].Tamanho_Pizza</th>
+                <th>@Model.ListaPedidos[i].Quantidade_Pizza</th>
+                <th>@Model.ListaPedidos[i].Bebida</th>
+                <th>@Model.ListaPedidos[i].Quantidade_Pizza</th>
+                <th>@Model.ListaPedidos[i].Forma_Pagamento</th>
+                <th>@Model.ListaPedidos[i].Status</th>
+            </tr>
+            }
+    </table>
+
+    <a href="/Home/Dashboard">
+        <button>Home</button>
+    </a>
+
+
+</div>
+<script>
+    function documento() {
+        window.location = '/Pedido/BuscaPedidoPorDocumento'
+    }
+    function criar() {
+        window.location = '/Pedido/CriaPedido'
+    }
+    function alterar() {
+        window.location = '/Pedido/AlteraPedido'
+    }
+    function Deletar() {
+        window.location = '/Pedido/DeletaPedido'
+    }
+</script>

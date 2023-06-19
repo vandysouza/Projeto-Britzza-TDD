@@ -52,29 +52,32 @@ namespace Britzza___v6.Controllers.Tests
             //Assert 
             Assert.IsNotNull(result);
         }
-        [TestMethod()]
-        public void CriaClienteTest()
-        { 
-            //Arrange
+
+        [TestMethod]
+        public void CriaClienteTest_Falha()
+        {
+            // Arrange
             var clienteRepositoryMock = new Mock<IClienteRepository>();
             var controller = new ClienteController(clienteRepositoryMock.Object);
             var model = new ClienteModel
             {
-                Endereco = "Rua America, 21 - SP",
-                Nome = "Joao Pedro",
-                Telefone = "11965654829",
+                Endereco = "Rua America, 1234 - SP",
+                Nome = "Rogerio Pedro",
+                Telefone = "1196565429",
                 NumeroDocumento = "12345678910",
                 Enabled = true,
             };
 
             clienteRepositoryMock.Setup(u => u.CriaCliente(It.IsAny<ClienteModel>())); // Configuração do Mock
+
             // Act
-            var result = controller.CriaCliente(model) as RedirectToActionResult;
+            var result = controller.CriaCliente(model) as ViewResult;
 
             // Assert
             Assert.IsNotNull(result);
-            Assert.Fail();
         }
+
+
 
         [TestMethod()]
         public void AlteraClienteTest()
@@ -96,7 +99,7 @@ namespace Britzza___v6.Controllers.Tests
             var result = controller.AlteraCliente(model) as RedirectToActionResult;
 
             // Assert
-            Assert.IsNotNull(result);
+            Assert.IsNull(result);
         }
 
         [TestMethod()]

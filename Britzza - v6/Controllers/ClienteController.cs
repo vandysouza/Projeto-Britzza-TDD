@@ -52,7 +52,7 @@ namespace Britzza___v6.Controllers
             ResultClienteModel result = new ResultClienteModel();
             result.ListaClientes = new List<ClienteModel>();
             ClienteModel cl = _clienteRepository.BuscaClientePorDocumento(model.BuscaDocumento);
-            if (cl.NumeroDocumento.Equals(null))
+            if (cl == null) 
             {
                 return View("~/Views/Shared/Error.cshtml");
 

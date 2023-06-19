@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Britzza - v6", "Britzza - v
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrizzaTest", "BrizzaTest2\BrizzaTest.csproj", "{7A928252-B6CD-4836-99FE-834B991071FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Britzza - v6Tests", "Britzza - v6Tests\Britzza - v6Tests.csproj", "{4738674F-BA8D-4309-825B-BE33E1F57237}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{7A928252-B6CD-4836-99FE-834B991071FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A928252-B6CD-4836-99FE-834B991071FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A928252-B6CD-4836-99FE-834B991071FB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4738674F-BA8D-4309-825B-BE33E1F57237}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4738674F-BA8D-4309-825B-BE33E1F57237}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4738674F-BA8D-4309-825B-BE33E1F57237}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4738674F-BA8D-4309-825B-BE33E1F57237}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
